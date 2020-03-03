@@ -1,9 +1,10 @@
 const express = require("express") // gerer la partir rout de l application
 
 const quotationrouters = require('./routers/quotationrouters')// une seul point 3la 5ater manech fi dossier
+const administratorrouters = require('./routers/administratorrouters')// une seul point 3la 5ater manech fi dossier
 
 const bodyparser=require('body-parser')
-const base=require('./models/base');//appeler base fi server
+const bd=require('./models/bd');//appeler base fi server
 const app = express(); //app c est un medlware contient toutes les fonctionnalites et les methodes qui offre l express
 
 
@@ -14,6 +15,7 @@ app.set('secretKey','test')//definie secretkey pour postman ya3refha
 
 //defini fonctions ajout dans le server
 app.use("/quotation",quotationrouters)// /esem table
+app.use("/administrator",administratorrouters)// /esem table
 
 app.listen(9500,(err)=>{ //app.listen pour la creation d un serveur c est methode asyn
     if(err){
